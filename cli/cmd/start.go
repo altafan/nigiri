@@ -167,14 +167,14 @@ func nigiriExists(listAll bool) (bool, error) {
 }
 
 func isNetworkOk(network string) bool {
-	var ok bool
-	for _, n := range []string{"regtest"} {
+	networks := []string{"regtest", "testnet"}
+	for _, n := range networks {
 		if network == n {
-			ok = true
+			return true
 		}
 	}
 
-	return ok
+	return false
 }
 
 func isDatadirOk(datadir string) bool {
